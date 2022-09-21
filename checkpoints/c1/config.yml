@@ -1,0 +1,8 @@
+model:
+  arch: cnn1
+batchsize: 32
+optimizer: adam
+lr: 1.0e-3
+weight_decay: 0.
+loss: ce
+nepochs: 20
