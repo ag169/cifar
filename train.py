@@ -105,7 +105,7 @@ def evaluate(model_, data_loader, epoch_, loss_=None, num_classes_=10):
 
             if loss_ is not None:
                 loss_op = loss_(model_op, class_labels)
-                total_loss += loss_op.item()
+                total_loss += loss_op.item() * images.size(0)
 
         pred_labels = torch.argmax(model_op, dim=1)
 
@@ -170,12 +170,13 @@ if __name__ == '__main__':
 
     print('-' * 50)
 
-    # TODO: Add print and logger
     log_file = args.cdr + '/log_' + str(datetime.datetime.now()).replace(':', '-').replace(' ', '_') + '.txt'
     print_and_log(log_file)
 
     print('Getting dataloaders!')
     data_loaders = get_cifar10_loaders(cfg.get('batchsize', 32))
+
+    num_epochs = cfg.get('nepochs', 25)
 
     print('-' * 50)
 
@@ -204,7 +205,7 @@ if __name__ == '__main__':
     print('Getting optimizer!')
     opt_name = cfg.get('optimizer', 'adam').lower()
     if opt_name == 'sgd':
-        optimizer = torch.optim.SGD(model.parameters(), lr=cfg.get('lr', 1.e-3),
+        optimizer = torch.optim.SGD(model.parameters(), lr=cfg.get('lr', 1.e-3), momentum=0.9,
                                     weight_decay=cfg.get('weight_decay', 0))
     elif opt_name == 'adam':
         optimizer = torch.optim.AdamW(model.parameters(), lr=cfg.get('lr', 1.e-3),
@@ -215,8 +216,6 @@ if __name__ == '__main__':
     scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.95)
 
     print('-' * 50)
-
-    num_epochs = cfg.get('nepochs', 25)
 
     if args.amp:
         print('Using Mixed-Precision Training!')
@@ -231,9 +230,10 @@ if __name__ == '__main__':
     test_accs = []
 
     print('-' * 80)
-
+    # torch.save(model, os.path.join(args.cdr, 'trained_model.pth'))
     total_train_time = 0
-    num_classes = len(data_loaders['metadata']['label_names'])
+    class_names = data_loaders['metadata']['label_names']
+    num_classes = len(class_names)
 
     for epoch in range(num_epochs):
         train_res = train(model, loss, optimizer, data_loaders['train_loader'], epoch + 1)
@@ -288,7 +288,9 @@ if __name__ == '__main__':
 
     plt.figure(figsize=(15, 15))
     conf_mat = test_res['confusion_matrix'].copy()
-    sns.heatmap(conf_mat, vmin=0, vmax=conf_mat.sum()/num_classes, annot=True, fmt='d')
+    sns.heatmap(conf_mat, vmin=0, vmax=conf_mat.sum()/num_classes, annot=True, fmt='d',
+                xticklabels=[x + '_pred' for x in class_names],
+                yticklabels=[x + '_actual' for x in class_names])
     plt.savefig(os.path.join(args.cdr, 'confusion_matrix.png'), bbox_inches='tight')
 
     print('Done')
