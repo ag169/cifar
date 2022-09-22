@@ -1,0 +1,152 @@
+Getting dataloaders!
+Files already downloaded and verified
+Files already downloaded and verified
+--------------------------------------------------
+Getting model!
+--------------------------------------------------
+Getting loss!
+--------------------------------------------------
+Getting optimizer!
+--------------------------------------------------
+Using Mixed-Precision Training!
+Training the model for 20 epochs!
+--------------------------------------------------------------------------------
+
+Train | Epoch: 1 	 Avg Loss: 1.29047	Avg Acc: 0.53194	Time: 0.566 mins
+
+
+Test | Epoch: 1 	 Avg Loss: 1.18307	Avg Acc: 0.60170	Time: 0.214 mins
+--------------------------------------------------------------------------------
+
+Train | Epoch: 2 	 Avg Loss: 0.88268	Avg Acc: 0.68788	Time: 0.491 mins
+
+
+Test | Epoch: 2 	 Avg Loss: 1.07503	Avg Acc: 0.63370	Time: 0.218 mins
+--------------------------------------------------------------------------------
+
+Train | Epoch: 3 	 Avg Loss: 0.72637	Avg Acc: 0.74760	Time: 0.495 mins
+
+
+Test | Epoch: 3 	 Avg Loss: 0.67450	Avg Acc: 0.76880	Time: 0.216 mins
+--------------------------------------------------------------------------------
+
+Train | Epoch: 4 	 Avg Loss: 0.62646	Avg Acc: 0.78400	Time: 0.495 mins
+
+
+Test | Epoch: 4 	 Avg Loss: 0.60007	Avg Acc: 0.79290	Time: 0.215 mins
+--------------------------------------------------------------------------------
+
+Train | Epoch: 5 	 Avg Loss: 0.56662	Avg Acc: 0.80534	Time: 0.488 mins
+
+
+Test | Epoch: 5 	 Avg Loss: 0.58723	Avg Acc: 0.79670	Time: 0.215 mins
+--------------------------------------------------------------------------------
+
+Train | Epoch: 6 	 Avg Loss: 0.51975	Avg Acc: 0.81996	Time: 0.491 mins
+
+
+Test | Epoch: 6 	 Avg Loss: 0.58982	Avg Acc: 0.79400	Time: 0.215 mins
+--------------------------------------------------------------------------------
+
+Train | Epoch: 7 	 Avg Loss: 0.47828	Avg Acc: 0.83268	Time: 0.490 mins
+
+
+Test | Epoch: 7 	 Avg Loss: 0.57335	Avg Acc: 0.80150	Time: 0.217 mins
+--------------------------------------------------------------------------------
+
+Train | Epoch: 8 	 Avg Loss: 0.44551	Avg Acc: 0.84610	Time: 0.491 mins
+
+
+Test | Epoch: 8 	 Avg Loss: 0.47780	Avg Acc: 0.83880	Time: 0.212 mins
+--------------------------------------------------------------------------------
+
+Train | Epoch: 9 	 Avg Loss: 0.41121	Avg Acc: 0.85690	Time: 0.486 mins
+
+
+Test | Epoch: 9 	 Avg Loss: 0.45637	Avg Acc: 0.84660	Time: 0.213 mins
+--------------------------------------------------------------------------------
+
+Train | Epoch: 10 	 Avg Loss: 0.39060	Avg Acc: 0.86636	Time: 0.491 mins
+
+
+Test | Epoch: 10 	 Avg Loss: 0.41730	Avg Acc: 0.85560	Time: 0.216 mins
+--------------------------------------------------------------------------------
+
+Train | Epoch: 11 	 Avg Loss: 0.37125	Avg Acc: 0.87206	Time: 0.490 mins
+
+
+Test | Epoch: 11 	 Avg Loss: 0.42368	Avg Acc: 0.85640	Time: 0.212 mins
+--------------------------------------------------------------------------------
+
+Train | Epoch: 12 	 Avg Loss: 0.34532	Avg Acc: 0.87940	Time: 0.488 mins
+
+
+Test | Epoch: 12 	 Avg Loss: 0.41901	Avg Acc: 0.85240	Time: 0.214 mins
+--------------------------------------------------------------------------------
+
+Train | Epoch: 13 	 Avg Loss: 0.33076	Avg Acc: 0.88544	Time: 0.492 mins
+
+
+Test | Epoch: 13 	 Avg Loss: 0.41792	Avg Acc: 0.86090	Time: 0.214 mins
+--------------------------------------------------------------------------------
+
+Train | Epoch: 14 	 Avg Loss: 0.31379	Avg Acc: 0.89082	Time: 0.500 mins
+
+
+Test | Epoch: 14 	 Avg Loss: 0.41452	Avg Acc: 0.86000	Time: 0.213 mins
+--------------------------------------------------------------------------------
+
+Train | Epoch: 15 	 Avg Loss: 0.30134	Avg Acc: 0.89454	Time: 0.489 mins
+
+
+Test | Epoch: 15 	 Avg Loss: 0.40042	Avg Acc: 0.86390	Time: 0.213 mins
+--------------------------------------------------------------------------------
+
+Train | Epoch: 16 	 Avg Loss: 0.28190	Avg Acc: 0.90160	Time: 0.489 mins
+
+
+Test | Epoch: 16 	 Avg Loss: 0.36985	Avg Acc: 0.87580	Time: 0.214 mins
+--------------------------------------------------------------------------------
+
+Train | Epoch: 17 	 Avg Loss: 0.27279	Avg Acc: 0.90512	Time: 0.493 mins
+
+
+Test | Epoch: 17 	 Avg Loss: 0.36638	Avg Acc: 0.87590	Time: 0.213 mins
+--------------------------------------------------------------------------------
+
+Train | Epoch: 18 	 Avg Loss: 0.26356	Avg Acc: 0.90788	Time: 0.490 mins
+
+
+Test | Epoch: 18 	 Avg Loss: 0.37353	Avg Acc: 0.87340	Time: 0.214 mins
+--------------------------------------------------------------------------------
+
+Train | Epoch: 19 	 Avg Loss: 0.25407	Avg Acc: 0.91122	Time: 0.490 mins
+
+
+Test | Epoch: 19 	 Avg Loss: 0.36500	Avg Acc: 0.87810	Time: 0.213 mins
+--------------------------------------------------------------------------------
+
+Train | Epoch: 20 	 Avg Loss: 0.24035	Avg Acc: 0.91594	Time: 0.490 mins
+
+
+Test | Epoch: 20 	 Avg Loss: 0.36284	Avg Acc: 0.87930	Time: 0.213 mins
+--------------------------------------------------------------------------------
+Training complete!
+Total train time: 9.89629760980606 mins
+--------------------------------------------------
+Final test results:
+loss: 0.3628437668681145
+acc: 0.8793
+time: 0.2131707231203715
+confusion_matrix:
+[[901  11  13  11   4   4   4   6  27  19]
+ [  5 949   1   1   2   1   3   0   9  29]
+ [ 42   1 806  48  33  17  33  11   5   4]
+ [ 18   3  25 764  20 109  25  20   6  10]
+ [  9   1  25  31 872  19  23  19   1   0]
+ [  4   1  19 102  17 828   7  18   4   0]
+ [  3   3  23  36   9  12 907   3   3   1]
+ [ 12   2  11  21  22  27   1 899   1   4]
+ [ 27  12   4   3   0   3   3   1 939   8]
+ [  9  44   1   6   0   0   1   1  10 928]]
+Done
