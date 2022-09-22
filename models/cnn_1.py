@@ -1,5 +1,5 @@
 import torch.nn as nn
-from models.layers import CRB
+from models.layers import CBR
 
 
 class CNN1(nn.Module):
@@ -7,27 +7,32 @@ class CNN1(nn.Module):
         super(CNN1, self).__init__()
 
         self.layers = nn.Sequential(
-            CRB(3, 64, 3),
-            CRB(64, 64, 3),
+            CBR(3, 64, 3),
+            CBR(64, 64, 3),
             nn.MaxPool2d(2, 2),
 
-            CRB(64, 64, 3),
-            CRB(64, 64, 3),
+            # 16 x 16 map-size
+
+            CBR(64, 64, 3),
+            CBR(64, 64, 3),
             nn.MaxPool2d(2, 2),
 
-            CRB(64, 128, 3),
-            CRB(128, 128, 3),
+            # 8 x 8 map-size
+
+            CBR(64, 128, 3),
+            CBR(128, 128, 3),
             nn.MaxPool2d(2, 2),
+
+            # 4 x 4 map-size
 
             nn.AdaptiveAvgPool2d(1),
             nn.Flatten(start_dim=1),
 
-            nn.Linear(128, 128, bias=True),
-            nn.ReLU(),
+            nn.Linear(128, 128, bias=False),
             nn.BatchNorm1d(128),
+            nn.ReLU(),
 
             nn.Linear(128, num_classes, bias=True),
-            nn.Softmax(dim=1),
         )
 
     def forward(self, x):

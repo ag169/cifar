@@ -6,18 +6,27 @@ import pickle
 
 
 def get_cifar10_loaders(batchsize=32):
-    transforms = torchvision.transforms.Compose(
+    train_transforms = torchvision.transforms.Compose(
         [
-            torchvision.transforms.Resize((32, 32)),
+            torchvision.transforms.RandomCrop(32, padding=4),
+            torchvision.transforms.RandomHorizontalFlip(),
             torchvision.transforms.ToTensor(),
         ]
     )
 
-    train_dataset = torchvision.datasets.CIFAR10(root='./', train=True, transform=transforms, download=True)
-    test_dataset = torchvision.datasets.CIFAR10(root='./', train=False, transform=transforms, download=True)
+    test_transforms = torchvision.transforms.Compose(
+        [
+            torchvision.transforms.ToTensor(),
+        ]
+    )
 
-    train_loader_ = DataLoader(train_dataset, batch_size=batchsize, shuffle=True, num_workers=4, pin_memory=True)
-    test_loader_ = DataLoader(test_dataset, batch_size=1, shuffle=False, num_workers=1, pin_memory=False)
+    train_dataset = torchvision.datasets.CIFAR10(root='./', train=True, transform=train_transforms, download=True)
+    test_dataset = torchvision.datasets.CIFAR10(root='./', train=False, transform=test_transforms, download=True)
+
+    train_loader_ = DataLoader(train_dataset, batch_size=batchsize, shuffle=True, num_workers=4, pin_memory=True,
+                               drop_last=False)
+    test_loader_ = DataLoader(test_dataset, batch_size=batchsize, shuffle=False, num_workers=4, pin_memory=False,
+                              drop_last=False)
 
     # Load metadata from downloaded dataset
     with open('cifar-10-batches-py/batches.meta', 'rb') as fp:
