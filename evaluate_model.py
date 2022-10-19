@@ -139,18 +139,5 @@ if __name__ == '__main__':
         for img_name, pred, label, prob in pred_list:
             fp.write(f'{img_name},{pred},{label},{prob}\n')
 
-    #
-    # dir_path = os.path.join(args.cdr, f'outlier_images_{args.imgsize}')
-    # os.makedirs(dir_path, exist_ok=True)
-    #
-    # for ii, img_tx in enumerate(imgs_tx):
-    #     max_pred = int(np.argmax(op_tensor_np[ii]))
-    #     fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(25, 10))
-    #     axes[0].imshow(img_tx)
-    #     axes[1].bar(x=CLASS_NAMES, height=op_tensor_np[ii])
-    #     axes[1].set(ylim=(0, 1.))
-    #     fig.suptitle(f'Predicted: {CLASS_NAMES[max_pred]} with probability: {op_tensor_np[ii, max_pred]}')
-    #     plt.savefig(os.path.join(dir_path, f'{str(ii).zfill(3)}.png'), bbox_inches='tight')
-
     print('Done!')
 

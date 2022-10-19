@@ -213,7 +213,7 @@ if __name__ == '__main__':
     else:
         raise NotImplementedError(f"Optimizer function: {opt_name} not implemented yet!")
 
-    scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.95)
+    scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=cfg.get('lr_gamma', 0.95))
 
     print('-' * 50)
 
